@@ -12,7 +12,29 @@
 
     <div id="app" class="container">
 
-        
+        <div class="new-todo">
+
+            <form @submmit.prevent='addTodo()'>
+                <input class="input-todo" type="text" placeholder="Nuovo Todo*" v-model="newTodo" required>
+                <button type="submit" class="add-button">Aggiungi</button>    
+            </form>
+
+        </div>
+
+        <div class="todo-container">
+
+            <ul v-if="todos.length > 0">
+
+                <li class="todo" v-for="(todo, index) in todos">{{ todo.text }}
+
+                    <i @click="removeTodo(index)">X</i>
+
+                </li>
+
+            </ul>        
+
+
+        </div>
 
 
     </div>
